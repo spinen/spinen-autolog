@@ -1,0 +1,7 @@
+name             'spinen-autolog'
+maintainer       'SPINEN'
+maintainer_email 'luke.reimer@spinen.com'
+license          'All rights reserved'
+description      'Installs/Configures spinen-autolog'
+long_description 'Installs/Configures spinen-autolog'
+version          '0.1.0'
