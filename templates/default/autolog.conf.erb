@@ -27,5 +27,4 @@ name=root	idle=-1
 group=users	idle=10 grace=60 clear
 name=security	idle=10 grace=60    clear
 
-# To stop autolog from killing lost processes, umcomment the next line.
-nolostkill
+<% if node['autolog']['nolostkill'] %>nolostkill<% end %>
