@@ -3,14 +3,14 @@ require 'chef/provider/lwrp_base'
 class Chef
   class Provider
     # Class information goes here.
-    class ComposerInstall < Chef::Provider::LWRPBase
+    class AutologLine < Chef::Provider::LWRPBase
       use_inline_resources if defined?(use_inline_resources)
       def whyrun_supported?
         true
       end
-      configuration_core = String.new
+      configuration_core = ""
       action :create do
-        autolog_line = String.new
+        autolog_line = ""
         options_hash = new_resource.options
         options_hash.each do |key, value|
           if options_hash[key]
