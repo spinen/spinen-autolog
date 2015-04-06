@@ -8,3 +8,4 @@
 # A copy of this license is provided at the root of this cookbook.
 #
 default['autolog']['nolostkill'] = true
+default['autolog']['protected_users'] = ['root']
