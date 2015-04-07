@@ -31,16 +31,17 @@ class Chef
           end
         end
         configuration_core = configuration_core + autolog_line + "\n"
-      end
 
-      template '/etc/autolog.conf' do
-        source 'autolog.conf.erb'
-        owner 'root'
-        group 'root'
-        mode 0644
-        variables({
-          :configuration_core => configuration_core
-          })
+        template '/etc/autolog.conf' do
+          source 'autolog.conf.erb'
+          owner 'root'
+          group 'root'
+          mode 0644
+          variables({
+            :configuration_core => configuration_core
+            })
+          notifies :restart, 'service[autolog]'
+        end
       end
     end
   end
