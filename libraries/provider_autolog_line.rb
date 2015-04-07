@@ -8,31 +8,24 @@ class Chef
       def whyrun_supported?
         true
       end
-      configuration_core = ""
+      configuration_core = ''
       action :create do
         service 'autolog' do
-          supports :restart => true
+          supports restart: true
         end
 
-        autolog_line = ""
+        autolog_line = ''
         switches_hash = new_resource.switches
         switches_hash.each do |key, value|
           if switches_hash[key]
             autolog_line = autolog_line + key.to_s + '=' + value + ' '
           end
         end
-        boolean_attributes = %w(
-          hard
-          mail
-          clear
-          warn
-          log)
-        boolean_attributes.each do |bravo|
-          value = new_resource.:bravo
-          if bravo
-            autolog_line = autolog_line + bravo + ' '
-          elsif !bravo
-            autolog_line = autolog_line + 'no' + bravo
+        new_resource.boolean_attributes.each do |key, value|
+          if value
+            autolog_line = autolog_line + key.to_s + ' '
+          elsif !value
+            autolog_line = autolog_line + 'no' + key.to_s + ' '
           end
         end
         configuration_core = configuration_core + autolog_line + "\n"
@@ -42,9 +35,7 @@ class Chef
           owner 'root'
           group 'root'
           mode 0644
-          variables({
-            :configuration_core => configuration_core
-            })
+          variables(configuration_core: configuration_core)
           notifies :restart, 'service[autolog]'
         end
       end

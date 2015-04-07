@@ -8,16 +8,16 @@ class Chef
       actions :create
       default_action :create
       attribute :switches, kind_of: Hash, default: { name: nil,
-                                                    group: nil,
-                                                    line: nil,
-                                                    idle: nil,
-                                                    grace: nil,
-                                                    ban: nil }
-      attribute :hard, kind_of: [TrueClass, FalseClass], default: false
-      attribute :mail, kind_of: [TrueClass, FalseClass], default: false
-      attribute :clear, kind_of: [TrueClass, FalseClass], default: true
-      attribute :warn, kind_of: [TrueClass, FalseClass], default: true
-      attribute :log, kind_of: [TrueClass, FalseClass], default: true
+                                                     group: nil,
+                                                     line: nil,
+                                                     idle: nil,
+                                                     grace: nil,
+                                                     ban: nil }
+      attribute :boolean_attributes, kind_of: Hash, default: { hard: false,
+                                                               mail: false,
+                                                               clear: true,
+                                                               warn: true,
+                                                               log: true }
     end
   end
 end
