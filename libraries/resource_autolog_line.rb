@@ -7,7 +7,7 @@ class Chef
       self.resource_name = :autolog_line
       actions :create
       default_action :create
-      attribute :options, kind_of: Hash, default: { name: nil,
+      attribute :switches, kind_of: Hash, default: { name: nil,
                                                     group: nil,
                                                     line: nil,
                                                     idle: nil,

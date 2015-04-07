@@ -10,11 +10,15 @@ class Chef
       end
       configuration_core = ""
       action :create do
+        service 'autolog' do
+          supports :restart => true
+        end
+
         autolog_line = ""
-        options_hash = new_resource.options
-        options_hash.each do |key, value|
-          if options_hash[key]
-            autolog_line = autolog_line + key + '=' + value + ' '
+        switches_hash = new_resource.switches
+        switches_hash.each do |key, value|
+          if switches_hash[key]
+            autolog_line = autolog_line + key.to_s + '=' + value + ' '
           end
         end
         boolean_attributes = %w(
@@ -24,6 +28,7 @@ class Chef
           warn
           log)
         boolean_attributes.each do |bravo|
+          value = new_resource.:bravo
           if bravo
             autolog_line = autolog_line + bravo + ' '
           elsif !bravo

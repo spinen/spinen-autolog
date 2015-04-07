@@ -9,4 +9,4 @@
 #
 node.default['autolog']['protected_users'] = node['autolog']['protected_users'] + ['vagrant']
 
-include_recipe 'default'
+include_recipe 'spinen-autolog::default'

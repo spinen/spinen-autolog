@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: @cookbook_name
+# Cookbook Name:: spinen_autolog
 # Atributes:: default
 #
 # Copyright (C) 2015 SPINEN
