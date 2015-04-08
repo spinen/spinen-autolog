@@ -15,11 +15,7 @@
 #     after "idle" minutes of total session time (rather than idle time).
 # ban=xx: A user extending his session-limit will be banned for xx minutes.
 
-# protected users
-name=root	idle=-1
 
-# session - limits
-idle=10 grace=60 clear nomail warn
+<%= @configuration_core %>
 
-# To stop autolog from killing lost processes, umcomment the next line.
-nolostkill
+<% if node['autolog']['nolostkill'] %>nolostkill<% end %>
